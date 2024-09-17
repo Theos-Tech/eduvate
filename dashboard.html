@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EduVate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+body, html {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
+
+/* Cards */
+.card {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    color: #0d47a1;
+}
+
+.card .stats {
+    font-size: 2em;
+    color: #333;
+}
+
+/* Chart Section */
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Feature Boxes */
+.feature-box {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feature-box h4 {
+    font-size: 1.8em;
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.feature-box .btn {
+    background-color: #0d47a1;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feature-box .btn:hover {
+    background-color: #ffd700;
+}
+
+/* Footer */
+footer {
+    background-color: #0d47a1;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 2em;
+    }
+
+    .dashboard-header p {
+        font-size: 1em;
+    }
+
+    .card h3 {
+        font-size: 1.2em;
+    }
+
+    .card .stats {
+        font-size: 1.5em;
+    }
+
+    .feature-box h4 {
+        font-size: 1.5em;
+    }
+
+    .feature-box p {
+        font-size: 1em;
+    }
+
+    .feature-box .btn {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><h1>EduVate</h1></a>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <div class="menu-icon" id="menu-icon">
+                <span>&#9776;</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Features</a>
+                    <ul class="dropdown-content">
+                        <li class="dropdown-submenu">
+                            <a href="#">School Management</a>
+                            <ul class="dropdown-subcontent">
+                                <li><a href="#">Attendance Tracking</a></li>
+                                <li><a href="#">Performance Tracking</a></li>
+                                <li><a href="#">Visitor Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Learning Management</a>
+                            <ul class="dropdown-subcontent">
+                                <li><a href="#">Courses</a></li>
+                                <li><a href="#">Assignments</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Communication</a>
+                            <ul class="dropdown-subcontent">
+                                <li><a href="#">Announcements</a></li>
+                                <li><a href="#">Messages</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="dashboard.html">Admin Dashboard</a></li>
+                <li><a href="contact.html">Get-in-Touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard container py-5">
+        <div class="dashboard-header">
+            <h1 class="text-center">Admin Dashboard</h1>
+            <p class="text-center">Manage and monitor student attendance and performance efficiently.</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="row my-5">
+            <div class="col-md-3">
+                <div class="card shadow-sm text-center">
+                    <h3>Total Students</h3>
+                    <p class="stats">1,200</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm text-center">
+                    <h3>Attendance Rate</h3>
+                    <p class="stats">95%</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm text-center">
+                    <h3>Average Performance</h3>
+                    <p class="stats">88%</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm text-center">
+                    <h3>New Visitors</h3>
+                    <p class="stats">350</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Attendance Tracking</h3>
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h3>Performance Analytics</h3>
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Additional Features Section -->
+        <div class="row my-5">
+            <div class="col-md-6">
+                <div class="feature-box shadow-sm">
+                    <h4>Generate Reports</h4>
+                    <p>Generate detailed attendance and performance reports for students and teachers.</p>
+                    <a href="#" class="btn btn-primary">Generate Report</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box shadow-sm">
+                    <h4>Manage Users</h4>
+                    <p>Admin can manage student, teacher, and visitor data with advanced tools.</p>
+                    <a href="#" class="btn btn-primary">Manage Users</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EduVate - Education Elevated</p>
+        </div>
+    </footer>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <!-- Charts Script -->
+    <script>
+        // Attendance Chart
+        const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(attendanceCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                datasets: [{
+                    label: 'Attendance',
+                    data: [100, 90, 85, 95, 80],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                }]
+            }
+        });
+
+        // Performance Analytics Chart
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(performanceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Math', 'English', 'Science', 'History', 'Art'],
+                datasets: [{
+                    label: 'Average Grade',
+                    data: [85, 90, 78, 88, 92],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+    </script>
+
+    <!-- Responsive Menu Script -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
+
+    </script>
+    <script>
+        <script>
+    let currentImageIndex = 0;
+    const images = [
+        'path-to-image1.jpg',
+        'path-to-image2.jpg',
+        'path-to-image3.jpg'
+    ];
+    const heroSection = document.querySelector('.hero');
+
+    function changeBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        heroSection.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    }
+
+    setInterval(changeBackgroundImage, 5000); // Change image every 5 seconds
+</script>
+<script>
+    let currentImageIndex = 0;
+    const images = [
+        'path-to-image1.jpg',
+        'path-to-image2.jpg',
+        'path-to-image3.jpg'
+    ];
+    const heroSection = document.querySelector('.hero');
+
+    function changeBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        heroSection.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    }
+
+    setInterval(changeBackgroundImage, 5000); // Change image every 5 seconds
+</script>
+<script>
+    // Get all FAQ items
+const faqItems = document.querySelectorAll('.faq-item');
+
+// Add event listener for each FAQ question
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+        // Toggle active class to show/hide the answer
+        item.classList.toggle('active');
+        
+        // Optionally, you can close other answers when one is opened
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+    });
+});
+
+</script>
+    </script>
+</body>
+</html>
