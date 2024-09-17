@@ -314,30 +314,67 @@ h2 {
 
 
 
+/* Responsive styles for the CTA section */
 .cta-section {
-    background-color: #fff;
-    color: white;
     text-align: center;
-    padding: 50px 0;
+    padding: 20px;
 }
+
 .cta-section h2 {
-    font-size: 2.0em;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    font-size: 18px;
     margin-bottom: 20px;
 }
-.cta-section p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    color: #0d47a1;
-}
-.cta-btn, .demo-btn {
-    background-color: #ffeb3b;
-    padding: 15px 30px;
+
+.cta-section .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    color: #00296b;
+    border: none;
     border-radius: 5px;
-    font-size: 1.2em;
-    margin:  20px;
-    
-    color: #0d47a1;
-    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Media query for smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .cta-section .btn {
+        display: block;
+        width: 80%;  /* Full width for better readability */
+        margin: 10px auto;  /* Center the buttons */
+        font-size: 14px;
+    }
+
+    .cta-section h2 {
+        font-size: 22px;
+    }
+
+    .cta-section p {
+        font-size: 16px;
+    }
+}
+
+/* Media query for extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .cta-section h2 {
+        font-size: 20px;
+    }
+
+    .cta-section p {
+        font-size: 14px;
+    }
+
+    .cta-section .btn {
+        font-size: 12px;
+        padding: 10px;
+    }
 }
 
 .faq {
@@ -394,6 +431,8 @@ footer p {
     margin: 10px 0;
 }
 
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -445,3 +484,4 @@ footer p {
         font-size: 1.2em;
     }
 }
+
